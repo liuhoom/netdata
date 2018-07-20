@@ -11,7 +11,7 @@ uniquepath() {
             [ ! -z "${path}" ] && path="${path}:"
             path="${path}${REPLY}"
         fi
-    done < <( echo "${PATH}" | tr ":" "\n" )
+    done <<( echo "${PATH}" | tr ":" "\n" )
 
     [ ! -z "${path}" ] && [[ "${PATH}" =~ /bin ]] && [[ "${PATH}" =~ /sbin ]] && export PATH="${path}"
 }
